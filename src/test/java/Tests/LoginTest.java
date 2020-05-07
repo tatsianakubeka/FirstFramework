@@ -8,6 +8,7 @@ public class LoginTest extends SampleTest {
     public void loginTest() {
         user.mainPage.openMainPage();
         user.mainPage.clickOnSignInButton();
+        user.mainPage.fillInEmailAddress("automationstep@gmail.com");
     }
 
 }
