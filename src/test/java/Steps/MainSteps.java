@@ -14,6 +14,11 @@ public class MainSteps extends ScenarioSteps {
     }
 
     @Step
+    public void clickOnSignInButtonOnAlreadyRegisteredForm() {
+        onPage.clickOnSignInButtonOnAlreadyRegisteredForm();
+    }
+
+    @Step
     public void openMainPage() {
         onPage.openMainPage();
     }
@@ -29,7 +34,12 @@ public class MainSteps extends ScenarioSteps {
     }
 
     @Step
-    public void checkText() {
-        onPage.checkText();
+    public void checkTextOnAuthenticationPage() {
+        onPage.checkTextOnAuthenticationPage();
+    }
+
+    @Step
+    public void checkTextOnMyAccountPage() {
+        onPage.checkTextOnMyAccountPage();
     }
 }
