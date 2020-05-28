@@ -18,4 +18,18 @@ public class MainSteps extends ScenarioSteps {
         onPage.openMainPage();
     }
 
+    @Step
+    public void fillInEmailAddressField(String email) {
+        onPage.fillInEmailAddressField(email);
+    }
+
+    @Step
+    public void fillInPasswordField(String password) {
+        onPage.fillInPasswordField(password);
+    }
+
+    @Step
+    public void checkText() {
+        onPage.checkText();
+    }
 }
