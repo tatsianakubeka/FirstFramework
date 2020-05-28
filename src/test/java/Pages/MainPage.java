@@ -14,6 +14,9 @@ public class MainPage extends BasePage{
     @FindBy(css = "a.login")
     private WebElement signInButton;
 
+    @FindBy(id = "SubmitLogin")
+    private WebElement signInButtonOnAlreadyRegisteredForm;
+
     @FindBy(id = "email")
     private WebElement emailAddressField;
 
@@ -22,6 +25,9 @@ public class MainPage extends BasePage{
 
     @FindBy (xpath = "//*[@id='create-account_form']/div/p")
     private WebElement createAnAccountText;
+
+    @FindBy (xpath = "//*[@id='center_column']/p")
+    private WebElement myAccountText;
 
     public MainPage(WebDriver driver) {
         super(driver);
@@ -35,11 +41,15 @@ public class MainPage extends BasePage{
         element(signInButton).click();
     }
 
+    public void clickOnSignInButtonOnAlreadyRegisteredForm() {
+        element(signInButtonOnAlreadyRegisteredForm).click();
+    }
+
     public void fillInEmailAddress (String email) {
         element(emailAddressField).sendKeys(email);
     }
 
-    public void checkText() {
+    public void checkTextOnAuthenticationPage() {
         String text = element(createAnAccountText).getText();
         System.out.println(text);
         Pattern pattern = Pattern.compile("(^Please\\senter\\s)");
@@ -48,6 +58,18 @@ public class MainPage extends BasePage{
             System.out.println("Have found");
         } else {
             System.out.println("Have not found");
+        }
+    }
+
+    public void checkTextOnMyAccountPage() {
+        String text = element(myAccountText).getText();
+        System.out.println(text);
+        Pattern pattern = Pattern.compile("(^Welcome\\sto\\syour\\s)");
+        Matcher matcher = pattern.matcher(text);
+        if (matcher.find()) {
+            System.out.println("_Have found");
+        } else {
+            System.out.println("_Have not found");
         }
     }
 
